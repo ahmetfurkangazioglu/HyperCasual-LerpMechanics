@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
         //transform.Translate(new Vector3(hor* MoveSpeed * Time.deltaTime, 0, MoveSpeed * Time.deltaTime));
 
         transform.position += Vector3.forward * MoveSpeed * Time.deltaTime;
-        if (Input.GetKey("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             Move();
         }
@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
             Vector3 hitVec = hit.point;
             hitVec.y = character.transform.localPosition.y;
             hitVec.z = character.transform.localPosition.z;
-
+            Debug.Log(hitVec);
             character.transform.localPosition = Vector3.MoveTowards(character.transform.localPosition, hitVec, Time.deltaTime * SwipeSpeed);
         }
     }
